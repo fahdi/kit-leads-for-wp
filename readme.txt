@@ -1,5 +1,5 @@
 === KitLeads – Grand Slam Lead Magnets for Kit.com ===
-Contributors: fahdi
+Contributors: leadleads
 Tags: lead magnets, grand slam offer, convertkit, email marketing, marketing
 Requires at least: 5.0
 Tested up to: 6.9
