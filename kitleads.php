@@ -7,7 +7,7 @@
  * Author: LeadLeads Team
  * Author URI: https://leadleads.io
  * License: GPLv2 or later
- * Text Domain: kit-leads-for-wp
+ * Text Domain: kitleads-lead-magnet
  */
 
 if (!defined('ABSPATH')) {
@@ -55,20 +55,31 @@ class KitLeads
 
     public function add_settings_page()
     {
-        add_options_page(
-            __('Grand Slam Lead Magnets', 'kit-leads-for-wp'),
-            __('KitLeads Magnets', 'kit-leads-for-wp'),
+        add_menu_page(
+            __('Grand Slam Lead Magnets', 'kitleads-lead-magnet'),
+            __('KitLeads', 'kitleads-lead-magnet'),
             'manage_options',
-            'kit-leads-settings',
-            array($this, 'render_settings_page')
+            'kitleads-settings',
+            array($this, 'render_settings_page'),
+            'dashicons-email-alt',
+            30
         );
     }
 
     public function register_settings()
     {
-        register_setting('kitleads_settings_group', 'kitleads_api_secret');
-        register_setting('kitleads_settings_group', 'kitleads_form_id');
-        register_setting('kitleads_settings_group', 'kitleads_fallback_email');
+        register_setting('kitleads_settings_group', 'kitleads_api_secret', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        register_setting('kitleads_settings_group', 'kitleads_form_id', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_text_field',
+        ));
+        register_setting('kitleads_settings_group', 'kitleads_fallback_email', array(
+            'type' => 'string',
+            'sanitize_callback' => 'sanitize_email',
+        ));
     }
 
     public function render_settings_page()
@@ -76,7 +87,7 @@ class KitLeads
         ?>
         <div class="wrap">
             <h1>
-                <?php _e('Grand Slam Lead Magnets for Kit.com', 'kit-leads-for-wp'); ?>
+                <?php esc_html_e('Grand Slam Lead Magnets for Kit.com', 'kitleads-lead-magnet'); ?>
             </h1>
             <form method="post" action="options.php">
                 <?php settings_fields('kitleads_settings_group'); ?>
@@ -84,38 +95,38 @@ class KitLeads
                 <table class="form-table">
                     <tr valign="top">
                         <th scope="row">
-                            <?php _e('Kit.com API Secret', 'kit-leads-for-wp'); ?>
+                            <?php esc_html_e('Kit.com API Secret', 'kitleads-lead-magnet'); ?>
                         </th>
                         <td>
                             <input type="password" name="kitleads_api_secret"
                                 value="<?php echo esc_attr(get_option('kitleads_api_secret')); ?>" class="regular-text" />
                             <p class="description">
-                                <?php _e('Found in your Kit.com account settings under API.', 'kit-leads-for-wp'); ?>
+                                <?php esc_html_e('Found in your Kit.com account settings under API.', 'kitleads-lead-magnet'); ?>
                             </p>
                         </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row">
-                            <?php _e('Lead Magnet Form ID', 'kit-leads-for-wp'); ?>
+                            <?php esc_html_e('Lead Magnet Form ID', 'kitleads-lead-magnet'); ?>
                         </th>
                         <td>
                             <input type="text" name="kitleads_form_id"
                                 value="<?php echo esc_attr(get_option('kitleads_form_id')); ?>" class="regular-text" />
                             <p class="description">
-                                <?php _e('The numeric ID of your Kit.com landing page or form.', 'kit-leads-for-wp'); ?>
+                                <?php esc_html_e('The numeric ID of your Kit.com landing page or form.', 'kitleads-lead-magnet'); ?>
                             </p>
                         </td>
                     </tr>
                     <tr valign="top">
                         <th scope="row">
-                            <?php _e('Fallback Email', 'kit-leads-for-wp'); ?>
+                            <?php esc_html_e('Fallback Email', 'kitleads-lead-magnet'); ?>
                         </th>
                         <td>
                             <input type="email" name="kitleads_fallback_email"
                                 value="<?php echo esc_attr(get_option('kitleads_fallback_email', get_option('admin_email'))); ?>"
                                 class="regular-text" />
                             <p class="description">
-                                <?php _e('Email to receive lead data if the API connection fails.', 'kit-leads-for-wp'); ?>
+                                <?php esc_html_e('Email to receive lead data if the API connection fails.', 'kitleads-lead-magnet'); ?>
                             </p>
                         </td>
                     </tr>
@@ -124,14 +135,14 @@ class KitLeads
             </form>
             <div class="card" style="max-width: 600px; margin-top: 20px;">
                 <h2>
-                    <?php _e('Generate High-Value Leads', 'kit-leads-for-wp'); ?>
+                    <?php esc_html_e('Generate High-Value Leads', 'kitleads-lead-magnet'); ?>
                 </h2>
                 <p>
-                    <?php _e('Drop your Grand Slam Lead Magnet code into any page or post to start building your audience:', 'kit-leads-for-wp'); ?>
+                    <?php esc_html_e('Drop your Grand Slam Lead Magnet code into any page or post to start building your audience:', 'kitleads-lead-magnet'); ?>
                 </p>
                 <code>[kitleads]</code>
                 <p>
-                    <?php _e('You can also override the specific Magnet ID:', 'kit-leads-for-wp'); ?>
+                    <?php esc_html_e('You can also override the specific Magnet ID:', 'kitleads-lead-magnet'); ?>
                 </p>
                 <code>[kitleads form_id="123456"]</code>
             </div>
@@ -154,9 +165,9 @@ class KitLeads
     {
         $atts = shortcode_atts(array(
             'form_id' => '',
-            'title' => __('Get the Grand Slam Multiplier', 'kit-leads-for-wp'),
-            'button_text' => __('Claim This Offer', 'kit-leads-for-wp'),
-            'placeholder' => __('Enter your email to receive value...', 'kit-leads-for-wp')
+            'title' => __('Get the Grand Slam Multiplier', 'kitleads-lead-magnet'),
+            'button_text' => __('Claim This Offer', 'kitleads-lead-magnet'),
+            'placeholder' => __('Enter your email to receive value...', 'kitleads-lead-magnet')
         ), $atts, 'kitleads');
 
         wp_enqueue_style('kitleads-style');
@@ -186,12 +197,12 @@ class KitLeads
 
     public function handle_ajax_subscribe()
     {
-        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'kitleads_nonce')) {
+        if (!isset($_POST['nonce']) || !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['nonce'])), 'kitleads_nonce')) {
             wp_send_json_error('Security check failed');
         }
 
-        $email = isset($_POST['email']) ? sanitize_email($_POST['email']) : '';
-        $form_id = isset($_POST['form_id']) ? sanitize_text_field($_POST['form_id']) : '';
+        $email = isset($_POST['email']) ? sanitize_email(wp_unslash($_POST['email'])) : '';
+        $form_id = isset($_POST['form_id']) ? sanitize_text_field(wp_unslash($_POST['form_id'])) : '';
 
         $result = $this->bridge->subscribe($email, $form_id, array(
             'site_url' => get_site_url(),
@@ -201,9 +212,9 @@ class KitLeads
         if (is_wp_error($result)) {
             // Even if API fails, bridge handles fallback email. We can show success if we want "silent failure" 
             // or error if we want user to know. Let's show success message but log error for admin.
-            wp_send_json_success(array('message' => __('Thank you for subscribing!', 'kit-leads-for-wp')));
+            wp_send_json_success(array('message' => __('Thank you for subscribing!', 'kitleads-lead-magnet')));
         } else {
-            wp_send_json_success(array('message' => __('Thank you for subscribing!', 'kit-leads-for-wp')));
+            wp_send_json_success(array('message' => __('Thank you for subscribing!', 'kitleads-lead-magnet')));
         }
     }
 }

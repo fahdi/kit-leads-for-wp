@@ -1,5 +1,5 @@
 === KitLeads – Grand Slam Lead Magnets for Kit.com ===
-Contributors: leadleads
+Contributors: fahdi
 Tags: lead magnets, grand slam offer, convertkit, email marketing, marketing
 Requires at least: 5.0
 Tested up to: 6.9
@@ -25,7 +25,7 @@ Designed for marketers, course creators, and developers who value simplicity and
 
 == Installation ==
 
-1. Upload the `kit-leads-for-wp` folder to the `/wp-content/plugins/` directory.
+1. Upload the `kitleads-lead-magnet` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Go to **Settings > KitLeads Magnets** to enter your credentials.
 
