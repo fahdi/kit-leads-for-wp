@@ -1,5 +1,5 @@
 /**
- * KitLeads AJAX Submission
+ * Grand Slam Lead Magnets AJAX Submission
  */
 document.addEventListener('DOMContentLoaded', function () {
     const forms = document.querySelectorAll('.kitleads-form');
@@ -56,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             })
             .catch(error => {
-                console.error('KitLeads Error:', error);
+                console.error('Grand Slam Lead Magnets Error:', error);
                 messageEl.textContent = 'Connection error. Please try again.';
                 messageEl.classList.add('error');
                 submitBtn.disabled = false;

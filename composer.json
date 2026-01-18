@@ -1,6 +1,6 @@
 {
-    "name": "tablecrafter/kit-leads-for-wp",
-    "description": "Grand Slam Lead Magnets for Kit.com integration for WordPress",
+    "name": "fahdi/grand-slam-lead-magnets",
+    "description": "Grand Slam Lead Magnets - Multi-service lead magnet platform for WordPress",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "require-dev": {
@@ -10,8 +10,13 @@
     },
     "autoload": {
         "psr-4": {
-            "KitLeads\\": "includes/"
+            "GrandSlamLeadMagnets\\": "includes/"
         }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:watch": "phpunit --watch",
+        "test:coverage": "phpunit --coverage-html coverage"
     },
     "config": {
         "optimize-autoloader": true,

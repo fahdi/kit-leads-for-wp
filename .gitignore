@@ -1,4 +1,72 @@
-/vendor
-/node_modules
+# WordPress Plugin Directory Submission - .gitignore
+
+# Development Dependencies
+/vendor/
+/node_modules/
+composer.lock
+package-lock.json
+yarn.lock
+
+# Test Output and Coverage
+/coverage/
+coverage.txt
+test-results.xml
+phpunit.xml
+
+# Development Files
 .phpunit.result.cache
 .DS_Store
+Thumbs.db
+
+# IDE Files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Logs
+*.log
+error_log
+debug.log
+
+# Environment Files
+.env
+.env.local
+.env.production
+.env.staging
+
+# Build Files (if using build process)
+/dist/
+/build/
+/assets/build/
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Temporary Files
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# WordPress Specific
+wp-config.php
+wp-content/uploads/
+wp-content/cache/
+
+# Google Trends CSV files (development research)
+*.csv
+
+# Plugin Development
+TODO.md
+DEVELOPMENT.md
+
+# Zip files for distribution
+*.zip
