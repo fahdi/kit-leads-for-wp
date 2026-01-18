@@ -8,8 +8,25 @@
 	convertWarningsToExceptions="true"
 	>
 	<testsuites>
-		<testsuite name="KitLeads Test Suite">
+		<testsuite name="Grand Slam Lead Magnets Test Suite">
 			<directory suffix=".php">./tests/</directory>
 		</testsuite>
 	</testsuites>
+	<coverage>
+		<include>
+			<directory suffix=".php">./</directory>
+		</include>
+		<exclude>
+			<directory>./tests/</directory>
+			<directory>./vendor/</directory>
+			<file>./kitleads.php</file>
+		</exclude>
+		<report>
+			<html outputDirectory="./coverage"/>
+			<text outputFile="./coverage.txt"/>
+		</report>
+	</coverage>
+	<logging>
+		<junit outputFile="./test-results.xml"/>
+	</logging>
 </phpunit>

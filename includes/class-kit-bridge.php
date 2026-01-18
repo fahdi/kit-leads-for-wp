@@ -1,10 +1,10 @@
 <?php
 /**
- * KitLeads Bridge
+ * Grand Slam Lead Magnets - Kit Bridge
  * 
  * Handles interactions with the Kit.com (ConvertKit) API using plugin settings.
  * 
- * @package KitLeads
+ * @package GrandSlamLeadMagnets
  * @version 1.0.0
  */
 
@@ -110,7 +110,7 @@ class KitLeads_Bridge
 
         wp_mail(
             $fallback_email,
-            'KitLeads Alert (API Failed): ' . $email,
+            'Grand Slam Lead Magnets Alert (API Failed): ' . $email,
             sprintf(
                 "Kit.com API failed to process a new lead.\n\nEmail: %s\nSite: %s\nError: %s",
                 $email,

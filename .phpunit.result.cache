@@ -1,1 +1,0 @@
-{"version":1,"defects":{"KitLeadsTest::test_hooks_registered_on_instantiation":4},"times":{"KitLeadsTest::test_get_instance":0.024,"KitLeadsTest::test_hooks_registered_on_instantiation":0.046,"KitLeadsTest::test_shortcode_registration":0,"KitLeadsTest::test_public_methods_exist":0}}
