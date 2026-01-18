@@ -2,6 +2,12 @@
  * LeadCrafter - Grand Slam Lead Magnets AJAX Submission
  */
 document.addEventListener('DOMContentLoaded', function () {
+    // Check if leadCrafterData is available
+    if (typeof leadCrafterData === 'undefined') {
+        console.error('LeadCrafter: leadCrafterData is not defined. Please check plugin configuration.');
+        return;
+    }
+
     const forms = document.querySelectorAll('.leadcrafter-form');
 
     forms.forEach(form => {
