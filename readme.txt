@@ -45,6 +45,30 @@ In your Kit.com account under Settings > API.
 1. **Strategic Settings** - Simplify your lead generation setup.
 2. **Value-First Form** - The clean, conversion-focused default magnet.
 
+== External services ==
+
+This plugin connects to the **Kit.com (ConvertKit) API** to subscribe users to your email list. This integration is essential for the plugin's core functionality of capturing leads and adding them to your email marketing platform.
+
+= What data is sent =
+
+When a visitor submits their email address through a LeadCrafter form, the following data is transmitted to Kit.com (ConvertKit):
+
+* **Email address** - The email address entered by the visitor
+* **Form ID** - Your Kit.com form identifier (configured in plugin settings)
+* **Custom fields** - Any additional fields you have configured (optional)
+
+= When data is sent =
+
+Data is sent to the Kit.com API only when a visitor voluntarily submits their email through a LeadCrafter form on your website. No data is sent without explicit user action.
+
+= Service provider =
+
+This service is provided by **Kit (formerly ConvertKit)**:
+
+* Service website: [https://kit.com](https://kit.com)
+* Terms of Service: [https://kit.com/terms](https://kit.com/terms)
+* Privacy Policy: [https://kit.com/privacy](https://kit.com/privacy)
+
 == Changelog ==
 
 = 1.2.1 =
